@@ -1,17 +1,18 @@
 import { useState } from 'react';
 
-export const AddCategory = ({ setCategories}) => {
+export const AddCategory = ({ onNewCategory }) => {
 
-  const [InputValue, setInputValue ] = useState('');
+  const [inputValue, setInputValue ] = useState('');
 
   const onInputChange = (event) => ( setInputValue(event.target.value) );
 
   const onSubmit = (event) =>{
     event.preventDefault();
 
-    if(InputValue.trim().length <= 1 ){ return; }
+    if(inputValue.trim().length <= 1 ){ return; }
 
-    setCategories( categories => [...categories, InputValue ]); // podemos usar un callback o pasar las categorias como props
+    //setCategories( categories => [...categories, InputValue ]); // podemos usar un callback o pasar las categorias como props
+    onNewCategory(inputValue.trim());
 
     // una vez insertado limpiamos el campo 
     setInputValue('');
@@ -22,7 +23,7 @@ export const AddCategory = ({ setCategories}) => {
       <input
         type="text"
         placeholder="buscar gifs"
-        value={ InputValue }
+        value={ inputValue }
         onChange={ (event) => onInputChange(event) }
       />
     </form>
