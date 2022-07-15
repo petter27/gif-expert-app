@@ -5,7 +5,7 @@ import { GifGrid } from './components/GifGrid';
 const GifExpertApp = () => {
 
   //const categories = ['One Punch', 'Samurai X', 'Dragon Ball'];
-  const [categories, setCategories] = useState(['Demon Slayers','Black Clover', 'Hunter x Hunter', 'Dragon Ball']);
+  const [categories, setCategories] = useState(['Hunter x Hunter']);
 
   const onAddCategory = (newCategory) => {
     // includes verifica si un valor ya existe en el arreglo 
