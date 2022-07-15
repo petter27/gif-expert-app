@@ -1,8 +1,12 @@
+import { useEffect } from 'react';
 import { getGifs } from '../helpers/getGifs'
 
 export const GifGrid = ({ category }) => {
 
-  getGifs(category);
+  // si un un hook useEffect las dependecias se dejan vacias solo se disparara una vez
+  useEffect( () => {
+    getGifs(category);
+  },[])
 
   return (
     <>
